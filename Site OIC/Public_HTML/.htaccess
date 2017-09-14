@@ -1,0 +1,44 @@
+IndexIgnore .htaccess */.??* *~ *# */HEADER* */README* */_vti*
+
+<Limit GET POST>
+order deny,allow
+deny from all
+allow from all
+</Limit>
+<Limit PUT DELETE>
+order deny,allow
+deny from all
+</Limit>
+AuthName oic.org.br
+AuthUserFile /home/oicorg/public_html/_vti_pvt/service.pwd
+AuthGroupFile /home/oicorg/public_html/_vti_pvt/service.grp
+
+##########################################
+# Retirar .php, .html // retirar "index" #
+##########################################
+# removendo .php
+RewriteCond %{HTTP_HOST} ^www\.domain\.com
+RewriteCond %{THE_REQUEST} ^GET\ (.*)\.php\ HTTP
+RewriteRule (.*)\.php$ $1 [R=301]
+# removendo index
+RewriteRule (.*)index$ $1 [R=301]
+# removendo a "/" se não for diretorio
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} /$
+RewriteRule (.*)/ $1 [R=301]
+# adicionando ".php" sem redirecionar
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteCond %{REQUEST_URI} !/$
+RewriteRule (.*) $1\.php [L]
+
+
+##########################################
+#####    Usando 404 presonalizado    #####
+##########################################
+RewriteEngine on
+ErrorDocument 404 http://www.oic.org.br/404
+
+##########################################
+### Erro PKP(Public Knowledge Project) ###
+##########################################
+Redirect http://www.oic.org.br/revista/index.php/Conscientiotherapia/index http://www.oic.org.br/revista/index.php/Conscientiotherapia

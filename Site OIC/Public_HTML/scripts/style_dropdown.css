@@ -1,0 +1,77 @@
+#dropdown{
+	/*ESQUEMA DE CORES*/
+		/* #2266A1 -- Padrão OIC */
+		/* #265483 -- versão escurecida do padrão OIC */
+		/* #E6E7E8 -- cinza */
+	
+	/*fazer com que as linhas das laterias de 0.5px para 1px, pois 0.5px tende a desaparecer de acordo com situações e o objetivo e fica sempre o mesmo*/
+	padding-left: 0.5px;
+	padding-right: 0.5px;
+	
+	/*cor da linha de separação entre os "menus"*/
+	background: #2266A1;
+	
+	margin:0;/*limpar padding*/
+	list-style:none;
+	float:left;
+}
+#dropdown li{
+	float:left;
+	
+	/*fazer as linhas azuis aparecerem*/
+	margin-right:0.5px;
+	margin-left:0.5px;
+}
+#dropdown a{
+	font-weight:normal;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:14px;
+	display:block;
+	padding:5px;
+	color:#265483;
+	background-image:url(../images/li_bg.jpg);
+	text-decoration:none;
+}
+#dropdown a:hover{
+	color:#2266A1;
+	background-image:url(../images/li_hover.jpg);
+}
+
+/*--- DROPDOWN ---*/
+/*cria o a lista do dropdown*/
+#dropdown ul{
+	margin:0; padding:0;/*limpar margins*/
+	background:#fff; /*necessario para fazer funcionar corretamente, mesmo que trasparente*/
+	/*background:rgba(255,255,255,0); /*faz o background trasparente(para habilitar, basta tirar de comentario*/
+	list-style:none;
+	position:absolute;
+	left:-9999px; /*esconde o dropdown quando não chamado (mais acessivel que display:none;)*/
+}
+#dropdown ul li{
+	padding-top:1px; /*dar espaços entre as li's*/
+	float:none;
+}
+#dropdown ul a{
+	white-space:nowrap;
+}
+
+/*obs: hover é quando a mouse esta em cima do item que tem <a>*/
+#dropdown li:hover ul{
+	left:0; /* traz o dropdown quando necessario */
+}
+#dropdown li:hover a{ /*para li's que estão no topo, ou sea aparecendo toda hora. Este estilo se mantem se haver abaixo em sua lista*/
+	background-image:url(../images/li_hover.jpg);
+	color:#2266A1;
+}
+#dropdown li:hover ul a{
+	/*background-image:url(../images/li_bg.jpg);*/
+	border:1px solid #E6E7E8;
+	background:#fff;
+	color:#2266A1;
+	text-decoration:none;/*limpar decoration*/
+}
+#dropdown li:hover ul li a:hover{ /*estilo para cada item da lista*/
+	background-image:url(../images/li_hover.jpg);
+	border:1px solid #fff;
+	color:#2266A1;
+}

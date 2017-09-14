@@ -1,0 +1,22 @@
+#h2_titulo{
+	border-bottom: solid 1px; 
+	border-color: #999999;
+	font-size:15px;
+}
+
+#div_colunas{
+	width:230px;
+	float:right;
+}
+
+#p_colunas{
+	height:170px;
+	text-align:left;
+	font-size:15px;
+}
+
+#div_saibaMais{
+	position:relative; 
+	bottom:0; 
+	margin-left:0px;
+}

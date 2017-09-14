@@ -1,0 +1,14 @@
+/* style especifico para pagina de agenda_foz/agenda_poa/agenda_sp*/
+#coluna {
+	width:235px;
+}
+
+#sidebar {
+	text-align:center;
+	float: right;
+}
+
+#div-2_colunas {
+	min-height:301px;
+	width: 750px;
+}
